@@ -10,7 +10,12 @@ interface GitHubUser {
 }
 
 export default function GitHubModule() {
-  const [userData, setUserData] = useState<GitHubUser | null>(null);
+  const [userData, setUserData] = useState<GitHubUser>({
+    public_repos: 20,
+    followers: 9,
+    following: 13,
+    avatar_url: "https://avatars.githubusercontent.com/u/shoryapratap",
+  });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -19,7 +24,12 @@ export default function GitHubModule() {
         const res = await fetch("https://api.github.com/users/shoryapratap");
         if (res.ok) {
           const data = await res.json();
-          setUserData(data);
+          setUserData({
+            public_repos: data.public_repos ?? 20,
+            followers: data.followers ?? 9,
+            following: data.following ?? 13,
+            avatar_url: data.avatar_url ?? "https://avatars.githubusercontent.com/u/shoryapratap",
+          });
         }
       } catch (error) {
         console.error("Failed to fetch GitHub stats:", error);
@@ -39,39 +49,46 @@ export default function GitHubModule() {
           </svg>
           <span className="font-mono text-sm uppercase tracking-wider text-[#ffffff]">GitHub Contributions</span>
         </div>
-        <span className="text-xs font-mono text-[#D2FF2A]">LIVE DATA</span>
+        <a
+          href="https://github.com/shoryapratap"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-mono text-[#D2FF2A] hover:underline flex items-center gap-1"
+        >
+          <span>@shoryapratap</span>
+          <span>↗</span>
+        </a>
       </div>
 
       {/* Stats Counter */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 font-mono text-xs text-[#a3a3a3]">
-        <div className="border border-[#444340]/60 p-3 rounded-lg bg-[#121211]">
-          <div className="text-lg font-bold text-white">{loading ? "..." : userData?.public_repos ?? 14}</div>
-          <div className="text-[10px] uppercase tracking-wider">Repositories</div>
+      <div className="grid grid-cols-3 gap-3 font-mono text-xs text-[#a3a3a3]">
+        <div className="border border-[#444340]/60 p-3 rounded-xl bg-[#121211]">
+          <div className="text-xl font-bold text-white">{loading ? "..." : userData.public_repos}</div>
+          <div className="text-[10px] uppercase tracking-wider text-[#a3a3a3]">Repositories</div>
         </div>
-        <div className="border border-[#444340]/60 p-3 rounded-lg bg-[#121211]">
-          <div className="text-lg font-bold text-white">{loading ? "..." : userData?.followers ?? 8}</div>
-          <div className="text-[10px] uppercase tracking-wider">Followers</div>
+        <div className="border border-[#444340]/60 p-3 rounded-xl bg-[#121211]">
+          <div className="text-xl font-bold text-white">{loading ? "..." : userData.followers}</div>
+          <div className="text-[10px] uppercase tracking-wider text-[#a3a3a3]">Followers</div>
         </div>
-        <div className="border border-[#444340]/60 p-3 rounded-lg bg-[#121211] col-span-2 sm:col-span-1">
-          <div className="text-lg font-bold text-[#D2FF2A]">Active</div>
-          <div className="text-[10px] uppercase tracking-wider">Status</div>
+        <div className="border border-[#444340]/60 p-3 rounded-xl bg-[#121211]">
+          <div className="text-xl font-bold text-[#D2FF2A]">Active</div>
+          <div className="text-[10px] uppercase tracking-wider text-[#a3a3a3]">Status</div>
         </div>
       </div>
 
       {/* Heatmap Graph */}
       <div className="w-full overflow-x-auto pt-2">
-        <div className="min-w-[600px] border border-[#444340]/40 p-4 rounded-xl bg-[#121211] flex flex-col items-center justify-center">
+        <div className="min-w-[550px] border border-[#444340]/40 p-4 rounded-xl bg-[#121211] flex flex-col items-center justify-center">
           <img
             src="https://ghchart.rshah.org/444340/shoryapratap"
             alt="GitHub Contribution Heatmap"
-            className="w-full opacity-85 hover:opacity-100 transition-opacity invert sm:invert-0"
+            className="w-full opacity-90 hover:opacity-100 transition-opacity"
             onError={(e) => {
-              // Fallback image if chart fails to load
               e.currentTarget.style.display = "none";
             }}
           />
           <span className="text-[10px] font-mono text-[#a3a3a3] mt-2">
-            GitHub Contribution Activity Graph
+            Live GitHub Contribution Streak Matrix (@shoryapratap)
           </span>
         </div>
       </div>

@@ -51,13 +51,10 @@ export default function Home() {
 
             {/* Stepped Border Box for Creative WHO AM I? Bio & Buttons */}
             <div className="w-full flex flex-col items-start space-y-6 pl-6 lg:pl-8 pb-8 border-l border-b border-[#555450] rounded-bl-3xl">
-              {/* Creative WHO AM I? Badge */}
+              {/* Creative WHO AM I? Title */}
               <div className="flex items-center gap-3">
                 <span className="font-gued text-2xl sm:text-3xl font-extrabold text-[#ffffff] tracking-wide uppercase">
                   WHO AM I<span className="text-[#D2FF2A]">?</span>
-                </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#D2FF2A] border border-[#D2FF2A]/40 bg-[#D2FF2A]/10 px-2.5 py-0.5 rounded-full uppercase">
-                  DEVELOPER MANIFESTO
                 </span>
               </div>
 

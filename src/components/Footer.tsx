@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="flex flex-wrap items-center justify-center gap-6 pt-4 font-mono text-sm">
         {/* 1. Email link (mailto: action) */}
         <a
-          href="mailto:shoryapratap.work@gmail.com"
+          href="mailto:shoryaprataprathore28@gmail.com"
           className="px-6 py-3.5 border border-[#ffffff] text-white hover:bg-white hover:text-black transition-all rounded-full flex items-center gap-2"
         >
           <span>Email</span>
@@ -25,7 +25,7 @@ export default function Footer() {
 
         {/* 2. LinkedIn URL */}
         <a
-          href="https://linkedin.com/in/shoryapratap"
+          href="https://www.linkedin.com/in/shorya-pratap-rathore-720519352"
           target="_blank"
           rel="noopener noreferrer"
           className="px-6 py-3.5 border border-[#444340] text-[#b5b3ad] hover:border-[#38BDF8] hover:text-[#38BDF8] transition-all rounded-full flex items-center gap-2"
