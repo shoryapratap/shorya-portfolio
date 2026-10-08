@@ -17,15 +17,6 @@ export default function Home() {
         id="hero"
         className="min-h-screen w-full max-w-7xl mx-auto px-6 py-6 lg:py-12 flex flex-col justify-between"
       >
-        {/* Header bar / Top label */}
-        <div className="flex items-center justify-between text-xs tracking-widest uppercase font-mono text-[#a3a3a3] pb-8 border-b border-[#444340]/20">
-          <span>01 // HERO</span>
-          <span className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#D2FF2A] animate-pulse"></span>
-            AVAILABLE FOR OPPORTUNITIES
-          </span>
-        </div>
-
         {/* Asymmetrical Split Grid with MS Paint Architectural Stepped Borders */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end pt-12 lg:pt-16 pb-0">
           {/* Left Column: Monolithic Typography & Content (7 Cols) */}
@@ -108,10 +99,6 @@ export default function Home() {
         id="metrics"
         className="w-full max-w-7xl mx-auto px-6 py-24 space-y-12"
       >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
-          02 // DATA & SKILLS GRID
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <GitHubModule />
           <LeetCodeModule />
@@ -125,9 +112,6 @@ export default function Home() {
         id="projects"
         className="w-full max-w-7xl mx-auto px-6 py-24 border-t border-[#444340] space-y-12"
       >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
-          03 // PROJECT CASE STUDIES
-        </div>
 
         <div className="flex flex-col space-y-12">
           {/* Project 1: Multithreaded Java Chat */}

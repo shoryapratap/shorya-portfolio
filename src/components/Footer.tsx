@@ -4,9 +4,6 @@ export default function Footer() {
       id="contact"
       className="w-full max-w-7xl mx-auto px-6 py-20 border-t border-[#444340] flex flex-col items-center justify-center text-center space-y-8"
     >
-      <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
-        05 // CONTACT & DIRECT LINKS
-      </div>
 
       <h2 className="text-3xl sm:text-5xl font-black text-white uppercase tracking-tight max-w-2xl">
         Let&apos;s Build Something Scalable Together
