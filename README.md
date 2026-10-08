@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ✦ Shorya Pratap Rathore — Personal Portfolio
 
-## Getting Started
+![Next.js 16](https://img.shields.io/badge/Next.js-16.4.0-black?style=for-the-badge&logo=next.js)
+![React 19](https://img.shields.io/badge/React-19.3.0-61DAFB?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.0-38BDF8?style=for-the-badge&logo=tailwind-css)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript)
 
-First, run the development server:
+A modern, high-performance personal engineering portfolio designed with a hybrid **Editorial Dark Mode** aesthetic. Built with Next.js 16 (App Router & Turbopack), React 19, Tailwind CSS v4, and custom typography.
+
+---
+
+## 🎨 Design Philosophy & Highlights
+
+- **Editorial Dark Mode**: High-end digital magazine aesthetic integrated with technical minimalism.
+- **Custom Studio Wall Background**: Ambient fixed diagonal gradient (`#26211c` -> `#121211`) providing a warm studio portrait ambiance.
+- **Architectural Stepped Framing**: Custom 90° curved border containers (`rounded-bl-3xl` and `rounded-br-3xl`) framing content and portrait imagery flush with the editorial baseline.
+- **Custom Typography**:
+  - **Main Title**: Custom local **Gued** font (`Gued.otf` / `Gued - Bold.otf`) with an unfilled outline stroke effect on the middle name (`Pratap`).
+  - **Subtext & Technical Labels**: **Space Grotesk** display & mono typography.
+- **Zero Heavy Bloat**: Locked dark theme without unnecessary 3D canvas libraries or heavy particles for lightning-fast page loads.
+
+---
+
+## 🏗️ Project Architecture & Layout Sections
+
+1. `01 // HERO`: Monolithic typography lockup (**Shorya Pratap Rathore**), bio summary, resume download CTAs, and editorial portrait.
+2. `02 // METRICS & STATS`: Bento-style grid container for live GitHub contributions and LeetCode statistical counters.
+3. `03 // CASE STUDIES`: Engineering report case study blocks detailing Problem, Architecture, and DevOps.
+4. `04 // TECH STACK`: Technical capabilities and stack grid.
+5. `05 // CONTACT`: Minimalist center-aligned footer block.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18.17+ or later
+- npm / pnpm / yarn
+
+### Installation & Local Setup
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/shoryapratap/shorya-portfolio.git
+
+# 2. Navigate to project directory
+cd shorya-portfolio
+
+# 3. Install dependencies
+npm install
+
+# 4. Start local development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Build & Verification
 
-## Learn More
+To create an optimized production build:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run ESLint checks:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📂 Folder Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+shorya-portfolio/
+├── public/              # Public assets (profile photo, icons)
+├── src/
+│   ├── app/
+│   │   ├── favicon.ico
+│   │   ├── globals.css  # Editorial CSS theme & gradient background
+│   │   ├── layout.tsx   # Root layout & font configuration (Gued + Space Grotesk)
+│   │   └── page.tsx     # Main portfolio landing page
+│   └── fonts/           # Local font files (Gued.otf, Gued - Bold.otf)
+├── next.config.ts       # Next.js configuration
+├── package.json
+├── tsconfig.json
+└── README.md
+```
+
+---
+
+## 📄 License & Credits
+
+Developed by **Shorya Pratap Rathore**. All rights reserved.
