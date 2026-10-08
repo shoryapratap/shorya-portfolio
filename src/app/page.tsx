@@ -101,11 +101,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom indicator */}
-        <div className="flex items-center justify-between text-xs font-mono text-[#a3a3a3] pt-8 pb-4">
-          <span>BASED IN INDIA</span>
-          <span>SCROLL DOWN ↓</span>
-        </div>
       </section>
 
       {/* 02. DATA & SKILLS GRID COMPONENT */}
