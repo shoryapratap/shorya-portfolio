@@ -1,4 +1,9 @@
 import Image from "next/image";
+import GitHubModule from "@/components/GitHubModule";
+import LeetCodeModule from "@/components/LeetCodeModule";
+import TechStackModule from "@/components/TechStackModule";
+import ProjectCaseStudy from "@/components/ProjectCaseStudy";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -88,52 +93,62 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 02. LIVE METRICS BENTO GRID */}
+      {/* 02. DATA & SKILLS GRID COMPONENT */}
       <section
         id="metrics"
-        className="w-full max-w-7xl mx-auto px-6 py-24 border-b border-[#444340]/40"
+        className="w-full max-w-7xl mx-auto px-6 py-24 border-t border-[#444340] space-y-12"
       >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3] mb-8">
-          02 // METRICS & STATS
+        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
+          02 // DATA & SKILLS GRID
         </div>
-        {/* Metrics Grid Container */}
-        <div className="py-12"></div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <GitHubModule />
+          <LeetCodeModule />
+        </div>
+
+        <TechStackModule />
       </section>
 
-      {/* 03. PROJECT CASE STUDIES */}
+      {/* 03. PROJECT CASE STUDIES COMPONENT */}
       <section
         id="projects"
-        className="w-full max-w-7xl mx-auto px-6 py-24 border-b border-[#444340]/40"
+        className="w-full max-w-7xl mx-auto px-6 py-24 border-t border-[#444340] space-y-12"
       >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3] mb-8">
-          03 // CASE STUDIES
+        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
+          03 // PROJECT CASE STUDIES
         </div>
-        {/* Projects Container */}
-        <div className="py-12"></div>
+
+        <div className="flex flex-col space-y-12">
+          {/* Project 1: Multithreaded Java Chat */}
+          <ProjectCaseStudy
+            title="Multithreaded Java Chat"
+            subtitle="High-concurrency TCP socket chat application built strictly for command-line interface execution."
+            mediaType="console"
+            githubUrl="https://github.com/shoryapratap/multithreaded-java-chat"
+            stack={["Java", "SQLite", "Multithreading"]}
+            problem="Existing basic socket chat templates fail under concurrent connections due to blocking thread bottlenecks and unmanaged state synchronization across client sessions."
+            architecture="Engineered a multithreaded TCP server using Java Socket API paired with a thread pool executor. Implemented thread-safe queue channels and SQLite persistence for real-time room broadcasting and message logging."
+            challenges="Managing deadlock risk during concurrent broadcast locks and ensuring atomic database writes across worker threads without blocking client heartbeat signals."
+          />
+
+          {/* Project 2: Plant Guard */}
+          <ProjectCaseStudy
+            title="Plant Guard"
+            subtitle="AI-powered plant disease diagnosis platform with real-time botanical analysis and remediation guidance."
+            mediaType="web"
+            githubUrl="https://github.com/shoryapratap/plant-guard"
+            liveUrl="https://plantguard.dev"
+            stack={["React 19", "Tailwind CSS", "FastAPI", "Google Gemini SDK"]}
+            problem="Agricultural disease identification is traditionally slow, leaving small-scale farmers without instant, actionable diagnostic reports or treatment protocols."
+            architecture="Constructed a React 19 frontend communicating with a FastAPI backend. Integrated the Google Gemini SDK for multimodal vision analysis, generating structured treatment JSON payloads in under 800ms."
+            challenges="Optimizing high-resolution image compression before payload transmission and implementing strict schema validation on AI model outputs to prevent hallucinated diagnostic data."
+          />
+        </div>
       </section>
 
-      {/* 04. TECHNICAL SKILLS & STACK */}
-      <section
-        id="skills"
-        className="w-full max-w-7xl mx-auto px-6 py-24 border-b border-[#444340]/40"
-      >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3] mb-8">
-          04 // TECH STACK
-        </div>
-        {/* Skills Container */}
-        <div className="py-12"></div>
-      </section>
-
-      {/* 05. FOOTER & CONTACT */}
-      <footer
-        id="contact"
-        className="w-full max-w-7xl mx-auto px-6 py-16 flex flex-col items-center justify-center text-center"
-      >
-        <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3] mb-4">
-          05 // CONTACT
-        </div>
-        {/* Footer Container */}
-      </footer>
+      {/* 04. FOOTER & CONTACT COMPONENT */}
+      <Footer />
     </main>
   );
 }
