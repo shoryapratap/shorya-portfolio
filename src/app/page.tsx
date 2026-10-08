@@ -106,7 +106,7 @@ export default function Home() {
       {/* 02. DATA & SKILLS GRID COMPONENT */}
       <section
         id="metrics"
-        className="w-full max-w-7xl mx-auto px-6 py-24 border-t border-[#444340] space-y-12"
+        className="w-full max-w-7xl mx-auto px-6 py-24 space-y-12"
       >
         <div className="text-xs tracking-widest uppercase font-mono text-[#a3a3a3]">
           02 // DATA & SKILLS GRID
