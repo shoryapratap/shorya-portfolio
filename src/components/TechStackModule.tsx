@@ -31,6 +31,16 @@ interface RadarTech {
   code: string;
 }
 
+interface MatrixKey {
+  id: string;
+  code: string;
+  title: string;
+  subtitle: string;
+  status: string;
+  accent: string;
+  logs: string[];
+}
+
 export default function TechStackModule() {
   // CONCEPT 1 DATA STREAM CIRCUIT NODES
   const nodes: TechNode[] = [
@@ -144,11 +154,95 @@ export default function TechStackModule() {
     },
   ];
 
+  // CONCEPT 3 MATRIX KEYS
+  const matrixKeys: MatrixKey[] = [
+    {
+      id: "k01",
+      code: "SYS_01",
+      title: "Java Multithreading",
+      subtitle: "TCP Socket Server Engine",
+      status: "EXECUTING",
+      accent: "#D2FF2A",
+      logs: [
+        "[SYS_01] Initializing ReentrantReadWriteLock pool...",
+        "[SYS_01] Worker thread #8 handling client payload...",
+        "[SYS_01] Memory footprint: 48MB JVM heap allocation.",
+      ],
+    },
+    {
+      id: "k02",
+      code: "SYS_02",
+      title: "C++ DSA Core",
+      subtitle: "O(1) Memory Graph Engine",
+      status: "ACTIVE",
+      accent: "#38BDF8",
+      logs: [
+        "[SYS_02] Allocating stack memory pointers...",
+        "[SYS_02] Executing Dijkstra shortest path graph pass...",
+        "[SYS_02] Time complexity: O(E log V) verified.",
+      ],
+    },
+    {
+      id: "k03",
+      code: "SYS_03",
+      title: "FastAPI Gateway",
+      subtitle: "Async REST Pipeline",
+      status: "STREAMING",
+      accent: "#7C3AED",
+      logs: [
+        "[SYS_03] Uvicorn worker bound to 0.0.0.0:8000...",
+        "[SYS_03] Processing pydantic model schema validation...",
+        "[SYS_03] Response dispatched in 6.4ms.",
+      ],
+    },
+    {
+      id: "k04",
+      code: "SYS_04",
+      title: "React 19 Fiber",
+      subtitle: "Concurrent Server Components",
+      status: "OPTIMIZED",
+      accent: "#61DAFB",
+      logs: [
+        "[SYS_04] Hydrating server action payload...",
+        "[SYS_04] Reconciling virtual DOM diff tree...",
+        "[SYS_04] 60 FPS animation frame target achieved.",
+      ],
+    },
+    {
+      id: "k05",
+      code: "SYS_05",
+      title: "Docker Container",
+      subtitle: "Multi-Stage Build Target",
+      status: "RUNNING",
+      accent: "#F43F5E",
+      logs: [
+        "[SYS_05] Pulling alpine base image...",
+        "[SYS_05] Caching layer dependencies...",
+        "[SYS_05] Container health check: PASSED (200 OK).",
+      ],
+    },
+    {
+      id: "k06",
+      code: "SYS_06",
+      title: "Gemini Vision AI",
+      subtitle: "Multimodal Diagnostic Model",
+      status: "STANDBY",
+      accent: "#FFA116",
+      logs: [
+        "[SYS_06] Connecting to Google Generative AI endpoint...",
+        "[SYS_06] Serializing leaf disease image tensor...",
+        "[SYS_06] Diagnostic JSON output verified in 780ms.",
+      ],
+    },
+  ];
+
   const [activeNodeId, setActiveNodeId] = useState<string>("lang");
   const [selectedRadarId, setSelectedRadarId] = useState<string>("java");
+  const [selectedKeyId, setSelectedKeyId] = useState<string>("k01");
 
   const activeNode = nodes.find((n) => n.id === activeNodeId) || nodes[0];
   const selectedRadar = radarItems.find((r) => r.id === selectedRadarId) || radarItems[0];
+  const selectedKey = matrixKeys.find((m) => m.id === selectedKeyId) || matrixKeys[0];
 
   return (
     <div className="w-full space-y-16">
@@ -156,7 +250,6 @@ export default function TechStackModule() {
       {/* CONCEPT 1: INTERACTIVE DATA STREAM CIRCUIT */}
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="w-full border border-[#444340] bg-[#1a1918]/80 p-6 lg:p-8 rounded-2xl space-y-8 relative overflow-hidden">
-        {/* Circuit Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#444340]/60 pb-6">
           <div>
             <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-3">
@@ -172,7 +265,6 @@ export default function TechStackModule() {
           </span>
         </div>
 
-        {/* SVG ELECTRIC SIGNAL CONNECTION CIRCUIT */}
         <div className="w-full relative py-4">
           <div className="hidden lg:block absolute inset-0 pointer-events-none z-0">
             <svg className="w-full h-full text-[#444340]" viewBox="0 0 1000 100" fill="none" preserveAspectRatio="none">
@@ -227,7 +319,6 @@ export default function TechStackModule() {
           </div>
         </div>
 
-        {/* ACTIVE NODE INSPECTOR DISPLAY */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeNode.id}
@@ -290,15 +381,12 @@ export default function TechStackModule() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* RADAR SWEEP DISPLAY (Left 6 Cols) */}
           <div className="lg:col-span-6 flex justify-center py-6">
             <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-full border border-[#444340] bg-[#121211] flex items-center justify-center p-6 shadow-2xl">
-              {/* Radar Concentric Rings */}
               <div className="absolute inset-4 rounded-full border border-[#444340]/40 pointer-events-none"></div>
               <div className="absolute inset-12 rounded-full border border-[#444340]/30 pointer-events-none"></div>
               <div className="absolute inset-20 rounded-full border border-[#444340]/20 pointer-events-none"></div>
 
-              {/* Rotating Radar Sweep Line */}
               <motion.div
                 className="absolute inset-0 rounded-full origin-center pointer-events-none"
                 style={{
@@ -308,18 +396,16 @@ export default function TechStackModule() {
                 transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
               />
 
-              {/* Center Target HUD */}
               <div className="w-24 h-24 rounded-full border border-[#38BDF8]/50 bg-[#1c1b1a] flex flex-col items-center justify-center text-center z-10 shadow-lg">
                 <span className="text-2xl">{selectedRadar.icon}</span>
                 <span className="font-mono text-xs font-bold text-white mt-1">{selectedRadar.name}</span>
               </div>
 
-              {/* Orbiting Tech Radar Buttons */}
               {radarItems.map((item, idx) => {
                 const isSelected = item.id === selectedRadarId;
                 const total = radarItems.length;
                 const angleRad = ((idx * (360 / total) - 90) * Math.PI) / 180;
-                const radius = 120; // Radius in pixels
+                const radius = 120;
                 const x = Math.cos(angleRad) * radius;
                 const y = Math.sin(angleRad) * radius;
 
@@ -346,7 +432,6 @@ export default function TechStackModule() {
             </div>
           </div>
 
-          {/* RADAR LIVE METRICS INSPECTOR (Right 6 Cols) */}
           <div className="lg:col-span-6">
             <AnimatePresence mode="wait">
               <motion.div
@@ -396,6 +481,89 @@ export default function TechStackModule() {
                 </div>
               </motion.div>
             </AnimatePresence>
+          </div>
+        </div>
+      </div>
+
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* CONCEPT 3: EDITORIAL MATRIX KEYPAD & TELEMETRY LOGS */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="w-full border border-[#444340] bg-[#1a1918]/80 p-6 lg:p-8 rounded-2xl space-y-8 relative overflow-hidden">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#444340]/60 pb-6">
+          <div>
+            <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+              <span>Editorial Matrix Keypad & Telemetry</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-[#F43F5E] animate-ping"></span>
+            </h3>
+            <p className="text-xs text-[#b5b3ad] font-mono mt-1">
+              Press architectural module keypads to dispatch system telemetry diagnostics
+            </p>
+          </div>
+          <span className="text-xs font-mono text-[#F43F5E] border border-[#F43F5E]/40 bg-[#F43F5E]/10 px-3 py-1 rounded-full w-max">
+            KEYPAD MATRIX MODE
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* KEYPAD MATRIX BUTTONS (Left 6 Cols) */}
+          <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {matrixKeys.map((key) => {
+              const isSelected = key.id === selectedKeyId;
+              return (
+                <button
+                  key={key.id}
+                  onClick={() => setSelectedKeyId(key.id)}
+                  className={`p-4 rounded-xl border text-left transition-all duration-300 flex flex-col justify-between space-y-3 relative group ${
+                    isSelected
+                      ? "bg-[#121211] shadow-2xl scale-[1.03]"
+                      : "bg-[#121211]/60 hover:bg-[#121211] opacity-75 hover:opacity-100"
+                  }`}
+                  style={{
+                    borderColor: isSelected ? key.accent : "#444340",
+                    boxShadow: isSelected ? `0 0 15px ${key.accent}30` : "none",
+                  }}
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[10px] text-[#a3a3a3] uppercase">{key.code}</span>
+                    <span
+                      className="w-2 h-2 rounded-full"
+                      style={{ backgroundColor: isSelected ? key.accent : "#444340" }}
+                    ></span>
+                  </div>
+                  <div>
+                    <span className="font-mono text-xs font-bold text-white block">{key.title}</span>
+                    <span className="text-[10px] text-[#b5b3ad] block truncate mt-0.5">{key.subtitle}</span>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* TELEMETRY DIAGNOSTIC CONSOLE (Right 6 Cols) */}
+          <div className="lg:col-span-6 border border-[#444340] bg-[#0c0c0b] p-6 rounded-xl space-y-4 font-mono text-xs">
+            <div className="flex items-center justify-between border-b border-[#333330] pb-3 text-[#a3a3a3]">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: selectedKey.accent }}></span>
+                <span className="text-white font-bold">{selectedKey.code} TELEMETRY FEED</span>
+              </div>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-[#1c1b1a] text-white">
+                {selectedKey.status}
+              </span>
+            </div>
+
+            <div className="space-y-2 pt-2 text-[#D2FF2A]">
+              {selectedKey.logs.map((log, i) => (
+                <div key={i} className="flex items-start gap-2">
+                  <span className="text-[#a3a3a3] text-[10px] select-none">&gt;</span>
+                  <p className="leading-relaxed">{log}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-[#333330] flex items-center justify-between text-[10px] text-[#a3a3a3]">
+              <span>SYSTEM DIAGNOSTIC: OK</span>
+              <span>BUFFER MEMORY: 100% CLEAN</span>
+            </div>
           </div>
         </div>
       </div>
