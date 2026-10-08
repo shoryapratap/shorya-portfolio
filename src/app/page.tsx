@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
 import GitHubModule from "@/components/GitHubModule";
 import LeetCodeModule from "@/components/LeetCodeModule";
 import TechStackModule from "@/components/TechStackModule";
@@ -8,10 +9,13 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main className="min-h-screen text-[#b5b3ad] font-sans selection:bg-[#D2FF2A] selection:text-[#1c1b19]">
+      {/* TOP TRANSPARENT BORDERLESS NAVBAR */}
+      <Navbar />
+
       {/* 01. HERO SECTION */}
       <section
         id="hero"
-        className="min-h-screen w-full max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col justify-between"
+        className="min-h-screen w-full max-w-7xl mx-auto px-6 py-6 lg:py-12 flex flex-col justify-between"
       >
         {/* Header bar / Top label */}
         <div className="flex items-center justify-between text-xs tracking-widest uppercase font-mono text-[#a3a3a3] pb-8 border-b border-[#444340]/20">
