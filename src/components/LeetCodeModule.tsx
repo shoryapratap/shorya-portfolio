@@ -32,26 +32,38 @@ export default function LeetCodeModule() {
 
   useEffect(() => {
     async function fetchLeetCodeData() {
-      try {
-        const res = await fetch("https://leetcode-stats-api.herokuapp.com/shoryapratap");
-        if (res.ok) {
-          const data = await res.json();
-          if (data.status === "success" && data.totalSolved) {
-            setStats((prev) => ({
-              ...prev,
-              totalSolved: data.totalSolved,
-              easySolved: data.easySolved || prev.easySolved,
-              mediumSolved: data.mediumSolved || prev.mediumSolved,
-              hardSolved: data.hardSolved || prev.hardSolved,
-            }));
+      const endpoints = [
+        "https://alfa-leetcode-api.onrender.com/userProfile/shoryapratap",
+        "https://leetcode-api-faisalshohag.vercel.app/shoryapratap",
+      ];
+
+      for (const url of endpoints) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3000);
+          const res = await fetch(url, { signal: controller.signal }).catch(() => null);
+          clearTimeout(timeoutId);
+
+          if (res && res.ok) {
+            const data = await res.json().catch(() => null);
+            if (data && (data.totalSolved || data.total_solved)) {
+              setStats((prev) => ({
+                ...prev,
+                totalSolved: data.totalSolved || data.total_solved || prev.totalSolved,
+                easySolved: data.easySolved || data.easy_solved || prev.easySolved,
+                mediumSolved: data.mediumSolved || data.medium_solved || prev.mediumSolved,
+                hardSolved: data.hardSolved || data.hard_solved || prev.hardSolved,
+              }));
+              break;
+            }
           }
+        } catch {
+          // Ignore network failure and proceed to next endpoint or fallback
         }
-      } catch (error) {
-        console.error("Failed to fetch LeetCode data, using live stats:", error);
-      } finally {
-        setLoading(false);
       }
+      setLoading(false);
     }
+
     fetchLeetCodeData();
   }, []);
 
