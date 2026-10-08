@@ -49,10 +49,24 @@ export default function Home() {
               </span>
             </div>
 
-            {/* Stepped Border Box for Bio & Buttons */}
-            <div className="w-full flex flex-col items-start space-y-8 pl-6 lg:pl-8 pb-8 border-l border-b border-[#555450] rounded-bl-3xl">
+            {/* Stepped Border Box for Creative WHO AM I? Bio & Buttons */}
+            <div className="w-full flex flex-col items-start space-y-6 pl-6 lg:pl-8 pb-8 border-l border-b border-[#555450] rounded-bl-3xl">
+              {/* Creative WHO AM I? Badge */}
+              <div className="flex items-center gap-3">
+                <span className="font-gued text-2xl sm:text-3xl font-extrabold text-[#ffffff] tracking-wide uppercase">
+                  WHO AM I<span className="text-[#D2FF2A]">?</span>
+                </span>
+                <span className="text-[10px] font-mono tracking-widest text-[#D2FF2A] border border-[#D2FF2A]/40 bg-[#D2FF2A]/10 px-2.5 py-0.5 rounded-full uppercase">
+                  DEVELOPER MANIFESTO
+                </span>
+              </div>
+
               <p className="text-base sm:text-lg text-[#b5b3ad] max-w-xl font-normal leading-relaxed">
-                Full-Stack Developer & Software Engineer specializing in building high-performance web applications, scalable system architectures, and refined digital experiences.
+                I am a Full-Stack Engineer and System Architect dedicated to crafting high-concurrency backends, intuitive digital products, and intelligent web applications.
+              </p>
+
+              <p className="text-sm text-[#a3a3a3] max-w-xl leading-relaxed">
+                Driven by algorithmic rigor (Java, C++, Data Structures) and modern web engineering (React 19, FastAPI, Tailwind CSS), I bridge low-level execution efficiency with refined, editorial user interface design.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
