@@ -1,10 +1,5 @@
 @import "tailwindcss";
 
-@theme inline {
-  --font-gued: var(--font-gued);
-  --font-space: var(--font-space);
-}
-
 :root {
   --bg-main: #302f2d;
   --bg-surface: #252422;
