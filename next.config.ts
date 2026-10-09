@@ -1,11 +1,13 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
+// This specifically checks if GitHub's servers are building the code
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
 const nextConfig: NextConfig = {
   /* GitHub Pages configuration */
   output: "export",
-  basePath: isProd ? "/shorya-portfolio" : "",
+  basePath: isGithubActions ? "/shorya-portfolio" : "",
+  assetPrefix: isGithubActions ? "/shorya-portfolio" : "",
   images: {
     unoptimized: true,
   },
