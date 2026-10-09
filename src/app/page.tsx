@@ -24,7 +24,7 @@ export default function Home() {
             <div className="flex items-center gap-4 relative">
               {/* Left Vertical Annotation */}
               <span className="text-[10px] font-mono tracking-widest uppercase text-[#a3a3a3] [writing-mode:vertical-lr] rotate-180 select-none">
-                SOFTWARE ENGINEER
+                DATA ANALYST
               </span>
 
               {/* Main Title in Gued Font with Outlined Middle Name */}
@@ -36,7 +36,7 @@ export default function Home() {
 
               {/* Right Vertical Annotation */}
               <span className="text-[10px] font-mono tracking-widest uppercase text-[#a3a3a3] [writing-mode:vertical-lr] select-none">
-                FULL STACK DEVELOPER
+                DATA & SYSTEMS SCIENTIST
               </span>
             </div>
 
@@ -50,11 +50,11 @@ export default function Home() {
               </div>
 
               <p className="text-base sm:text-lg text-[#b5b3ad] max-w-xl font-normal leading-relaxed">
-                I am a Full-Stack Engineer and System Architect dedicated to crafting high-concurrency backends, intuitive digital products, and intelligent web applications.
+                I am a Data Analyst and Data Scientist dedicated to transforming complex datasets into actionable business intelligence, predictive models, and high-concurrency data pipelines.
               </p>
 
               <p className="text-sm text-[#a3a3a3] max-w-xl leading-relaxed">
-                Driven by algorithmic rigor (Java, C++, Data Structures) and modern web engineering (React 19, FastAPI, Tailwind CSS), I bridge low-level execution efficiency with refined, editorial user interface design.
+                Driven by mathematical rigor (SQL, Python, R, Machine Learning) and modern analytical engineering (Pandas, Scikit-Learn, Tableau, React 19), I bridge raw data complexity with intuitive, editorial decision-making interfaces.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">

@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-gued: var(--font-gued);
+  --font-space: var(--font-space);
+}
+
 :root {
   --bg-main: #302f2d;
   --bg-surface: #252422;
@@ -25,13 +30,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@theme {
-  --font-gued: var(--font-gued), sans-serif;
-  --font-space: var(--font-space), sans-serif;
+.font-gued {
+  font-family: var(--font-gued), sans-serif;
 }
 
-.font-gued {
-  font-family: var(--font-gued), sans-serif !important;
+.font-space {
+  font-family: var(--font-space), sans-serif;
 }
 
 ::selection {
