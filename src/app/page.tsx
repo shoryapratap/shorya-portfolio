@@ -1,4 +1,5 @@
 import Image from "next/image";
+import profileImg from "../../public/profile.png";
 import Navbar from "@/components/Navbar";
 import GitHubModule from "@/components/GitHubModule";
 import LeetCodeModule from "@/components/LeetCodeModule";
@@ -80,12 +81,10 @@ export default function Home() {
             <div className="relative w-full max-w-md border-r border-b border-[#555450] p-0 rounded-br-3xl group">
               <div className="relative w-full aspect-[3/4] overflow-hidden rounded-br-3xl">
                 <Image
-                  src="/profile.png"
+                  src={profileImg}
                   alt="Shorya Pratap Rathore"
-                  fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                  className="object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500 w-full h-full"
                 />
               </div>
             </div>
